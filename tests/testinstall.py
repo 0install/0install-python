@@ -664,15 +664,7 @@ class TestInstall(BaseTest):
 			cword += 1
 		os.environ['COMP_CWORD'] = str(cword)
 
-		if True:
-			# Test Python version
-			out, err = self.run_0install(['_complete', shell, '0install'] + args)
-		else:
-			# Test OCaml version
-			child = subprocess.Popen(['../ocaml/_build/0install', '_complete', shell, '0install'] + args,
-					stdout = subprocess.PIPE, stderr = subprocess.PIPE, universal_newlines = True)
-			out, err = child.communicate()
-			out = ('\n' + out).replace('\nadd ', '\nfilter ')[1:]
+		out, err = self.run_0install(['_complete', shell, '0install'] + args)
 
 		# print('-- %r[%s] (%r)---' % (args,cword,shell))
 		# print(out)

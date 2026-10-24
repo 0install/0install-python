@@ -5,15 +5,12 @@ PY = $(shell find zeroinstall -name '*.py' | sort)
 GTKBUILDER = $(shell find zeroinstall -name '*.ui' | sort | sed -e 's/\.ui/&.h/')
 SH = zeroinstall/zerostore/_unlzma
 
-all_except_ocaml: translations
+all: translations
 	$(PYTHON) setup.py build
 
 translations: $(MO)
 
-ocaml: all_except_ocaml
-	make -C ocaml ocaml
-
-install: all_except_ocaml
+install: all
 	$(PYTHON) setup.py install --force
 
 %.mo: %.po
@@ -39,6 +36,5 @@ check-po:
 	done
 clean:
 	$(PYTHON) setup.py clean
-	if [ -d ocaml/_build ]; then make -C ocaml clean; fi
 
-.PHONY: all install update-po check-po clean ocaml
+.PHONY: all install update-po check-po clean
