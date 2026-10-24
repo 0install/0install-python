@@ -1,7 +1,18 @@
-0install
-========
+0install (Python version)
+=========================
 
 Copyright Thomas Leonard and others, 2012
+
+This is the Python version of Zero Install. It is mainly intended for use as a
+library dependency for 0install-related Python tools, such as 0publish, 0repo,
+0template and 0watch.
+
+If you want an actual 0install executable, use one of these instead:
+
+- [0install](https://github.com/0install/0install): the OCaml version for
+  Linux, macOS and other Unixes
+- [0install-win](https://github.com/0install/0install-win): Zero Install for
+  Windows
 
 INTRODUCTION
 ------------
