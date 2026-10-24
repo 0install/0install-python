@@ -4,7 +4,7 @@ mode: ContinuousDeployment
 branches:
   # Mainline branch
   main:
-    regex: ^b2\.3$
+    regex: ^master$
     tag: pre
 
   # Stabilization branches
@@ -20,5 +20,5 @@ branches:
     tag: pre-pre
   fallback:
     source-branches: [main]
-    regex: ^(?!b2\.3|feature|pull|pr)
+    regex: ^(?!master|feature|pull|pr)
     tag: pre-pre
